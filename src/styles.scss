@@ -1,0 +1,19 @@
+@use "styles/typography";
+
+html, body { /*обнулила стиль браузера, * - все элементы*/
+  @include typography.font(h3);
+
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  height: 100svh;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+}

@@ -1,0 +1,77 @@
+@use "style.scss";
+@use "theme.scss";
+@use "typography.scss";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &-head {
+    @include typography.font(h4);
+
+    color: theme.palette(darkGrey);
+    border: none;
+    border-top: 1px solid theme.palette(lightGrey);
+    border-bottom: 1px solid theme.palette(secondBlack);
+    text-align: left;
+
+    &-column {
+      @include style.flex(row, flex-start, center);
+    }
+  }
+
+  &-body-cell {
+    @include typography.font(h3);
+
+    position: relative;
+    padding: 18px 30px 18px 0;
+    color: theme.palette(darkBlue);
+    border: none;
+    border-bottom: 1px solid theme.palette(lightGrey);
+    text-align: left;
+  }
+
+  &-body-row:hover {
+    background: theme.palette(gradient);
+
+    & .table-body-cell {
+      &:nth-child(n) {
+        color: theme.palette(firstWhite);
+      }
+
+      &:first-child::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -28px;
+        width: 28px;
+        height: 100%;
+        background: theme.palette(secondBlue);
+      }
+
+      &:last-child::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -54px;
+        width: 54px;
+        height: 100%;
+        background: theme.palette(firstBlue);
+      }
+    }
+  }
+
+  &-first-column {
+    @include typography.font(h3-bold);
+  }
+}
+
+.search-column {
+  height: 24px;
+  margin: 17px 8px 17px 0;
+}
+
+.date-column {
+  height: 26px;
+  margin-left: 16px;
+}

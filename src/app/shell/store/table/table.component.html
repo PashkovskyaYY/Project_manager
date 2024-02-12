@@ -1,0 +1,64 @@
+<table class="table">
+  <thead class="table-head">
+  <tr>
+    <th>
+      <div class="table-head-column">
+        <img class="search-column"
+             src="assets/searchTableIcon.png"
+             alt="иконка поиска">
+
+        <p>Поиск</p>
+      </div>
+    </th>
+
+    <th>
+      <div class="table-head-column">
+        <p>Автор</p>
+      </div>
+    </th>
+
+    <th>
+      <div class="table-head-column">
+        <p>Дата создания</p>
+
+        <img class="date-column"
+             src="assets/changeTableIcon.png"
+             alt="иконка прокрутки">
+      </div>
+    </th>
+
+    <th>
+      <div class="table-head-column">
+        <p>Редактор</p>
+      </div>
+    </th>
+
+    <th>
+      <div class="table-head-column">
+        <p>Дата редактирования</p>
+
+        <img class="date-column"
+             src="assets/changeTableIcon.png"
+             alt="иконка прокрутки">
+      </div>
+    </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <ng-container *ngFor="let project of projects">
+    <tr *ngIf="project"
+        class="table-body-row" (click)="onProjectClick(project)">
+      <td class="table-first-column table-body-cell">{{project.name}}</td>
+
+      <td class="table-body-cell">{{project.author}}</td>
+
+      <td class="table-body-cell">{{project.creationDate | date:'E, d MMMM, y'}}</td>
+
+      <td class="table-body-cell">{{project.editor}}</td>
+
+      <td class="table-body-cell">{{project.editionDate | date:'E, d MMMM, y'}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

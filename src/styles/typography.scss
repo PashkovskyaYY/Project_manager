@@ -1,0 +1,66 @@
+$font-family: (
+  IS: (
+    "Inter",
+    sans-serif
+  )
+);
+
+@function font-family($level) {
+  @if not map-has-key($font-family, $level) {
+    @error "Unknown palette level '#{$level}'";
+  }
+
+  @return map-get($font-family, $level);
+}
+
+$font: (
+  h1: (
+    font-weight: bold,
+    font-size: 36px,
+    font-family: font-family(IS)
+  ),
+  h2: (
+    font-weight: bold,
+    font-size: 22px,
+    font-family: font-family(IS)
+  ),
+  h23: (
+    font-weight: bold,
+    font-size: 18px,
+    font-family: font-family(IS)
+  ),
+  h3: (
+    font-weight: normal,
+    font-size: 14px,
+    font-family: font-family(IS)
+  ),
+  h3-bold: (
+    font-weight: bold,
+    font-size: 14px,
+    font-family: font-family(IS)
+  ),
+  h4: (
+    font-weight: normal,
+    font-size: 12px,
+    font-family: font-family(IS)
+  ),
+  h4-bold: (
+    font-weight: bold,
+    font-size: 12px,
+    font-family: font-family(IS)
+  )
+);
+
+@function typography($level) {
+  @if not map-has-key($font, $level) {
+    @error "Unknown typography level '#{$level}'";
+  }
+
+  @return map-get($font, $level);
+}
+
+@mixin font($level) {
+  font-family: map-get(typography($level), font-family);
+  font-size: map-get(typography($level), font-size);
+  font-weight: map-get(typography($level), font-weight);
+}

@@ -1,0 +1,85 @@
+@use "style.scss";
+@use "theme.scss";
+@use "typography.scss";
+
+.element-description {
+  @include style.flex(column);
+
+  height: 100%;
+  padding: 30px 47px 95px 48px;
+  background-color: theme.palette(fithBlue);
+  color: theme.palette(firstWhite);
+  overflow: hidden;
+
+  &-item {
+    @include style.flex(row, flex-start, center);
+
+    color: theme.palette(firstWhite);
+
+    &.name {
+      @include style.flex(row, space-between);
+
+      & .name-text {
+        @include typography.font(h2);
+
+        width: 366px;
+      }
+    }
+
+    &.date {
+      @include typography.font(h4);
+
+      margin-top: 20px;
+
+      & .date-text {
+        margin-right: 17px;
+      }
+    }
+
+    &.apps {
+      @include style.flex(row, space-between);
+
+      margin: 18px 0 16px;
+
+      &-text {
+        @include typography.font(h23);
+
+        margin-top: 52px;
+      }
+    }
+
+    &.user-authorisation {
+      @include typography.font(h3);
+
+      margin-top: 41px;
+
+      & .authorisation-icon {
+        margin-right: 14px;
+      }
+
+      & .authorisation-role {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.closing-button {
+  height: 32px;
+  width: 32px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &-image {
+    height: 32px;
+  }
+}

@@ -1,0 +1,52 @@
+<app-sidebar class="app-component"/>
+
+<div class="content">
+  <header class="header-line">
+    <img class="header-logo" src="assets/logo.png" alt="логотип ЦДЭС">
+
+    <div class="header-authorisation">
+      <div class="authorisation">
+        <img class="authorisation-icon" src="assets/userPhoto.png" alt="фото">
+
+        <p class="authorisation-name">Владислав Владимирович</p>
+      </div>
+
+      <a class="exit" href="#">
+        <img src="assets/exit.png" alt="выход">
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="projects">
+      <p class="projects-p">Проекты</p>
+
+      <button class="projects-button">Добавить проект</button>
+    </div>
+
+    <div class="main-content">
+      <div id="projects-table" class="projects-table">
+        <app-table id="table" class="app-table"
+                   [projects]="projects" (projectClicked)="selectProject($event)"/>
+
+        <footer class="footer">
+          <a href="#">
+            <img src="assets/leftArrow.png" alt="стрелка влево">
+          </a>
+
+          <p class="footer-text">Страница 1 из 11 Проектов</p>
+
+          <a href="#">
+            <img src="assets/rightArrow.png" alt="стрелка вправо">
+          </a>
+        </footer>
+      </div>
+
+      <app-toolbar
+        class="app-component"
+        [isHidden]="!selected"
+        [project]="selected"
+        (resetProject)="selected=undefined"/>
+    </div>
+  </main>
+</div>

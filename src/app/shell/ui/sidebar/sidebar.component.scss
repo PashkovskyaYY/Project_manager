@@ -1,0 +1,47 @@
+@use "style.scss";
+@use "theme.scss";
+
+.sidebar {
+  @include style.flex(column);
+
+  height: 100%;
+}
+
+.menu-button {
+  @include style.flex(row, center, center);
+
+  padding: 23px 27px 23px 29px;
+  background: theme.palette(thirdBlue);
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.icons {
+  @include style.flex(column, space-between);
+
+  height: 100%;
+  width: 100%;
+  background: theme.palette(firstBlue);
+
+  &-group {
+    @include style.flex(column, center, center);
+
+    width: 100%;
+    padding-top: 40px;
+
+    div:nth-child(n) {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.question-icon {
+  @include style.flex(column, center, center);
+
+  width: 100%;
+  padding-bottom: 70px;
+}

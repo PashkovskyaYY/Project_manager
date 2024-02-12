@@ -1,0 +1,6 @@
+@mixin flex($isColumn:row, $contentPosition:flex-start, $itemsPosition: flex-start) {
+  display: flex;
+  flex-direction: $isColumn;
+  justify-content: $contentPosition;
+  align-items: $itemsPosition;
+}

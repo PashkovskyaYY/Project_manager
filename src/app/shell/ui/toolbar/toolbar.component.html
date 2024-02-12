@@ -1,0 +1,29 @@
+<!--<ng-container>-->
+<div [@toolbarAnimation]="isHidden ? 'closed' : 'open'" class="element-description">
+  <div class="element-description-item name">
+    <p class="name-text">{{project?.name}}</p>
+
+    <button
+      class="closing-button"
+      (click)="reset()">
+      <img class="closing-button-image" src="assets/closeButton.png" alt="кнопка закрытия">
+    </button>
+  </div>
+
+  <div class="element-description-item date">
+    <p class="date-text">Дата создания:</p>
+
+    <p>{{project?.creationDate | date:'E, d MMMM, y'}}</p>
+  </div>
+
+  <p class="element-description-item apps-text">Пользователи проекта</p>
+
+  <div class="element-description-item user-authorisation">
+    <p class="authorisation-role">Автор:</p>
+
+    <img class="authorisation-icon" src="assets/userPhoto.png" alt="фото">
+
+    <p>{{project?.author}}</p>
+  </div>
+</div>
+<!--</ng-container>-->
