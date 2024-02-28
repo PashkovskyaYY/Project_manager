@@ -22,7 +22,7 @@ export class ViewComponent{
   projects: Project[] = PROJECTS;
   selected?:Project;
 
-  selectProject(project: Project) {
+  selectProject(project: Project): void {
     this.selected = project;
   }
 
