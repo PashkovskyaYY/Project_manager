@@ -5,6 +5,7 @@ import {TableComponent} from "../store/table/table.component";
 import {Project} from "../store/projects.model";
 import {PROJECTS} from "../store/projects.data";
 import {NgIf} from "@angular/common";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-view',
@@ -15,7 +16,10 @@ import {NgIf} from "@angular/common";
     SidebarComponent,
     ToolbarComponent,
     TableComponent,
-    NgIf
+    NgIf,
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive
   ]
 })
 export class ViewComponent{

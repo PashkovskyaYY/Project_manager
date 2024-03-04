@@ -1,0 +1,41 @@
+@use "style.scss";
+@use "theme.scss";
+@use "typography.scss";
+
+:host {
+  @include style.flex(column, center, center);
+
+  justify-content: center;
+  width: 100%;
+  background: theme.palette(verticalGradient);
+}
+
+.error {
+  @include style.flex(column, space-between, center);
+
+  width: 900px;
+  height: 401px;
+  padding: 60px 216px 90px;
+  background: theme.palette(firstWhite);
+
+  .elements {
+    @include style.flex(column, center, center);
+
+    .warning {
+      @include typography.font(h12);
+
+      margin-bottom: 10px;
+    }
+
+    &-button {
+      @include typography.font(h3-bold);
+
+      height: 45px;
+      width: 95px;
+      margin-top: 20px;
+      border: none;
+      color: theme.palette(firstWhite);
+      background: theme.palette(secondBlue);
+    }
+  }
+}

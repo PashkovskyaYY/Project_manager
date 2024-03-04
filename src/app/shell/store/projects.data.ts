@@ -65,6 +65,3 @@ export const PROJECTS: Project[] = [
     "editionDate": "2023-06-04T23:13:00.366Z"
   }
 ];
-
-
-
