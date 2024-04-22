@@ -11,7 +11,7 @@
         <p class="authorisation-name">Владислав Владимирович</p>
       </div>
 
-      <a routerLink="/login" routerLinkActive="active" class="exit" href="#">
+      <a routerLink="/login" routerLinkActive="active" class="exit" href="#" (click)="logout()">
         <img src="assets/exit.png" alt="выход">
       </a>
     </div>
@@ -21,7 +21,7 @@
     <div class="projects">
       <p class="projects-p">Проекты</p>
 
-      <button class="projects-button">Добавить проект</button>
+      <button class="projects-button" (click)="addProject()">Добавить проект</button>
     </div>
 
     <div class="main-content">
@@ -42,13 +42,16 @@
         </footer>
       </div>
 
-      <app-toolbar
-        class="app-component"
-        [isHidden]="!selected"
-        [project]="selected"
-        (resetProject)="selected=undefined"/>
+      <app-toolbar id="toolbar"
+                   class="app-component"
+                   [state]="toolbarState"
+                   [isHidden]="(toolbarState === 'default')"
+                   [project]="selected"
+                   (resetProject)="setValues()"
+                   (createdProject)="onCreateProject($event)"
+                   (projectDelete)="onDeleteProject($event)"/>
     </div>
   </main>
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet/>

@@ -1,29 +1,65 @@
-<!--<ng-container>-->
-<div [@toolbarAnimation]="isHidden ? 'closed' : 'open'" class="element-description">
-  <div class="element-description-item name">
-    <p class="name-text">{{project?.name}}</p>
+<ng-container [ngSwitch]="state">
+  <div *ngSwitchCase="'tableProject'" [@toolbarAnimation]="isHidden ? 'closed' : 'open'" class="element-description">
+    <div class="element-description-item name">
+      <p class="name-text">{{ project?.name }}</p>
 
-    <button
-      class="closing-button"
-      (click)="reset()">
-      <img class="closing-button-image" src="assets/closeButton.png" alt="кнопка закрытия">
-    </button>
+      <button
+        class="nti-button" (click)="editProject()">
+        <img class="nti-button-image" src="assets/editButton.svg" alt="кнопка редактирования">
+      </button>
+      <button
+        class="nti-button"
+        (click)="reset()">
+        <img class="nti-button-image" src="assets/closingIcon.svg" alt="кнопка закрытия">
+      </button>
+    </div>
+
+    <div class="element-description-item date">
+      <p class="date-text">Дата создания:</p>
+
+      <p>{{ project?.createdAt | date:'E, d MMMM, y' }}</p>
+    </div>
+
+    <p class="element-description-item apps-text">Пользователи проекта</p>
+
+    <div class="element-description-item user-authorisation">
+      <p class="authorisation-role">Автор:</p>
+
+      <img class="authorisation-icon" src="assets/userPhoto.png" alt="фото">
+
+      <p>{{ project?.createdBy }}</p>
+    </div>
   </div>
 
-  <div class="element-description-item date">
-    <p class="date-text">Дата создания:</p>
-
-    <p>{{project?.creationDate | date:'E, d MMMM, y'}}</p>
+  <div *ngSwitchCase="'createProject'" [@toolbarAnimation]="isHidden ? 'closed' : 'open'" class="element-description create">
+      <app-adding-project [toolbarState]="state" class="element-description-form create-project" (createdProject)="onProjectCreated($event)"/>
   </div>
 
-  <p class="element-description-item apps-text">Пользователи проекта</p>
+  <div *ngSwitchCase="'editProject'" [@toolbarAnimation]="isHidden ? 'closed' : 'open'" class="element-description">
+    <app-adding-project [toolbarState]="state" class="element-description-form" (createdProject)="onProjectCreated($event)"/>
 
-  <div class="element-description-item user-authorisation">
-    <p class="authorisation-role">Автор:</p>
+    <div class="element-description-item date">
+      <p class="date-text">Дата создания:</p>
 
-    <img class="authorisation-icon" src="assets/userPhoto.png" alt="фото">
+      <p>{{ project?.createdAt | date:'E, d MMMM, y' }}</p>
+    </div>
 
-    <p>{{project?.author}}</p>
+    <p class="element-description-item apps-text">Пользователи проекта</p>
+
+    <div class="element-description-item user-authorisation">
+      <p class="authorisation-role">Автор:</p>
+
+      <img class="authorisation-icon" src="assets/userPhoto.png" alt="фото">
+
+      <p>{{ project?.createdBy }}</p>
+    </div>
+
+    <div class="toolbar-footer">
+      <button
+        class="nti-button" (click)="deleteProject()">
+        <img class="nti-button-image" src="assets/deleteButton.svg" alt="кнопка удаления">
+        Удалить
+      </button>
+    </div>
   </div>
-</div>
-<!--</ng-container>-->
+</ng-container>

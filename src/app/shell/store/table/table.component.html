@@ -46,18 +46,18 @@
   </thead>
 
   <tbody>
-  <ng-container *ngFor="let project of projects">
-    <tr *ngIf="project"
+  <ng-container *ngIf="projects">
+    <tr *ngFor="let project of projects"
         class="table-body-row" (click)="onProjectClick(project)">
       <td class="table-first-column table-body-cell">{{project.name}}</td>
 
-      <td class="table-body-cell">{{project.author}}</td>
+      <td class="table-body-cell">{{project.createdBy}}</td>
 
-      <td class="table-body-cell">{{project.creationDate | date:'E, d MMMM, y'}}</td>
+      <td class="table-body-cell">{{project.createdAt | date:'E, d MMMM, y'}}</td>
 
-      <td class="table-body-cell">{{project.editor}}</td>
+      <td class="table-body-cell">{{project.updatedBy}}</td>
 
-      <td class="table-body-cell">{{project.editionDate | date:'E, d MMMM, y'}}</td>
+      <td class="table-body-cell">{{project.updatedAt | date:'E, d MMMM, y'}}</td>
     </tr>
   </ng-container>
   </tbody>

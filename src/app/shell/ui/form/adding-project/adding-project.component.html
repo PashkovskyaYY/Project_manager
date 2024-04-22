@@ -1,0 +1,42 @@
+<form class="form"
+      [class.form_created]=""
+      method="post" name="addingProject" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <div class="form-content">
+    <div class="form_header">
+      <div class="form_header-container">
+        <ng-container *ngIf="toolbarState === 'createProject'">
+         <textarea class="form_header-name input-text" placeholder="Введите наименование проекта" [formControl]="name"
+                  required></textarea>
+        </ng-container>
+
+        <ng-template [ngIf]="toolbarState === 'editProject'">
+          <textarea class="form_header-name input-text" [formControl]="name" [value]="'Сюда'"
+                    required></textarea>
+        </ng-template>
+      </div>
+
+      <button
+        class="nti-button"
+        (click)="reset()">
+        <img class="nti-button-image" src="assets/closingIcon.svg" alt="кнопка закрытия">
+      </button>
+    </div>
+
+    <div class="form_body">
+      <ng-template [ngIf]="toolbarState === 'createProject'">
+        <textarea class="form_body-description input-text" placeholder="Описание проекта" [formControl]="description"></textarea>
+      </ng-template>
+      <ng-template [ngIf]="toolbarState === 'editProject'">
+        <textarea class="form_body-description input-text" [formControl]="description">Сюда описание</textarea>
+      </ng-template>
+    </div>
+  </div>
+
+  <ng-template [ngIf]="toolbarState === 'createProject'">
+    <div class="form_footer">
+      <button class="submit-button" type="submit" [disabled]="projectForm.invalid"
+              [class.disabled-button]="projectForm.invalid">Сохранить
+      </button>
+    </div>
+  </ng-template>
+</form>

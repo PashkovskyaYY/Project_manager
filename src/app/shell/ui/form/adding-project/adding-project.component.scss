@@ -1,0 +1,103 @@
+@use "style.scss";
+@use "theme.scss";
+@use "typography.scss";
+
+.form {
+  @include style.flex(column, space-between, center);
+
+  height: 100%;
+  width: 100%;
+
+  &-content {
+    width: 100%;
+  }
+
+  &_header {
+    @include style.flex(row, space-between, center);
+
+    &-container {
+      @include style.flex(row, flex-start, center);
+
+      width: 366px;
+    }
+
+    &-name {
+      @include typography.font(h2);
+
+      text-decoration: underline;
+    }
+  }
+
+  &_body {
+    width: 100%;
+
+    &-description {
+      @include typography.font(h23);
+    }
+  }
+
+  &_footer {
+    @include style.flex(row, flex-end, center);
+
+    width: 100%;
+
+  }
+}
+
+.input-text {
+  height: 100%;
+  width: 100%;
+  resize: none;
+  background-color: transparent;
+  color: theme.palette(firstWhite);
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: theme.palette(firstWhite);
+  }
+}
+
+.nti-button {
+  @include style.flex(row, center, center);
+
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #fff;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &-image {
+    height: 26px;
+    width: 26px;
+    padding: 2px 8px;
+  }
+}
+
+.submit-button {
+  @include typography.font(h3-bold);
+
+  height: 45px;
+  width: 175px;
+  border: none;
+  color: theme.palette(firstWhite);
+  background: theme.palette(secondBlue);
+  cursor: pointer;
+}
+
+.disabled-button {
+  border: 2px solid theme.palette(firstWhite);
+  background-color: theme.palette(seconfGrey);
+  color: theme.palette(sixthBlue);
+  cursor: not-allowed;
+}

@@ -1,0 +1,13 @@
+[{
+  "context": [
+    "/api/**"
+  ],
+  "target": "http://localhost:8081",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": false,
+  "headers": {
+    "host": "localhost:8081",
+    "referer": "http://localhost:8081"
+  }
+}]
